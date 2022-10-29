@@ -1,0 +1,8 @@
+  # sum of the rows in a 3x3 matrix to a 1x3 matrix
+  col1_row_sums_matrix = matrix_3x3[0][0] + matrix_3x3[0][1] + matrix_3x3[0][2]
+    col2_row_sums_matrix = matrix_3x3[1][0] + matrix_3x3[1][1] + matrix_3x3[1][2]
+  col3_row_sums_matrix = matrix_3x3[2][0] + matrix_3x3[2][1] + matrix_3x3[2][2]
+
+  row_sum_matrix = np.array([col1_row_sums_matrix],
+                            [col2_row_sums_matrix ],
+                            [col3_row_sums_matrix] )
