@@ -1,0 +1,131 @@
+import numpy as np
+
+def calculate(list):
+  ######################################################
+  # C A L C U L A T E   L I S T   L E N G T H 
+  ######################################################
+  list_length = len(list)
+
+  # If value doesn't equal 9, throw it out
+  if list_length != 9:
+    raise ValueError("List must contain nine numbers.")
+    
+  ######################################################
+  # C O N V E R T   L I S T   T O   M A T R I X
+  ######################################################
+  # convert list to 3x3 NumPy array
+  matrix_3x3 = np.array(list).reshape(3,3)
+  """
+  ######################################################
+  # M A X
+  ######################################################
+  # Find max element in rows
+  matrix_3x3_row_max = [np.max(matrix_3x3, axis=0)]
+    
+  # Find max element in columns
+  matrix_3x3_column_max = [np.max(matrix_3x3, axis=1)]
+  
+  # Find max element
+  max_element = [matrix_3x3.max()]
+
+  # Max list
+  max_list = matrix_3x3_row_max, matrix_3x3_column_max, max_element
+  
+  ######################################################
+  # M I N
+  ######################################################
+  # Find min element in rows
+  matrix_3x3_row_min = ([matrix_3x3[[0,1,2]].min(), matrix_3x3[[3,4,5]].min(), matrix_3x3[[6,7,8]].min()])
+    
+  # Find min element in columns
+  matrix_3x3_column_min = ([matrix_3x3[[0,3,6]].min(), matrix_3x3[[1,4,7]].min(), matrix_3x3[[2,5,8]].min()])
+  
+  # Find min element
+  min_element = matrix_3x3.min()
+
+  # Min list
+  min_list = matrix_3x3_row_min, matrix_3x3_column_min, min_element
+  ######################################################
+  # S U M
+  ######################################################
+  # sum of the rows in a 3x3 matrix to a 1x3 matrix
+  row_sum_matrix = ([matrix_3x3[[0,1,2]].sum(), matrix_3x3[[3,4,5]].sum(), matrix_3x3[[6,7,8]].sum()])
+  
+  # sum of the columns in a 3x3 matrix to a 1x3 matrix
+  col_sum_matrix = ([matrix_3x3[[0,3,6]].sum(), matrix_3x3[[1,4,7]].sum(), matrix_3x3[[2,5,8]].sum()])
+  
+  # sum of the elements in a 3x3 matrix
+  every_element_sum = matrix_3x3.sum()
+
+  # Sum List
+  sum_list = row_sum_matrix, col_sum_matrix, every_element_sum
+  ######################################################
+  # M E A N
+  ######################################################
+  # Rows
+  row_of_column_means = [matrix_3x3[[0,1,2]].mean(), matrix_3x3[[3,4,5]].mean(), matrix_3x3[[6,7,8]].mean()]
+
+  # Columns
+  column_of_row_means = [matrix_3x3[[0,3,6]].mean(), matrix_3x3[[1,4,7]].mean(), matrix_3x3[[2,5,8]].mean()]
+  
+  # Entire Matrix Mean
+  mean_matrix_3x3 = matrix_3x3.mean()
+
+  mean_list = row_of_column_means, column_of_row_means, mean_matrix_3x3
+  ######################################################
+  # V A R I A N C E
+  ######################################################
+  # Find the row variances
+  row_variances = [matrix_3x3[[0,1,2]].var(), matrix_3x3[[3,4,5]].var(), matrix_3x3[[6,7,8]].var()]
+
+  # Find the column variances
+  column_variances = [matrix_3x3[[0,3,6]].var(), matrix_3x3[[1,4,7]].var(), matrix_3x3[[2,5,8]].var()]
+
+# Find the variance for the enitre matrix
+
+  matrix_variance = matrix_3x3.var()
+
+  ######## VARIANCES ###################
+  variances = [row_variances, column_variances, matrix_variance]
+
+
+  ######################################################
+  # S T A N D A R D   D E V I A T I O N
+  ######################################################
+  # Find the row standard deviation
+  row_std_dev = [matrix_3x3[[0,1,2]].std(), matrix_3x3[[3,4,5]].std(), matrix_3x3[[6,7,8]].std()]
+
+  # Find the column std_devs
+  column_std_dev = [matrix_3x3[[0,3,6]].std(), matrix_3x3[[1,4,7]].std(), matrix_3x3[[2,5,8]].std()]
+
+  # Find the std_dev for the enitre matrix
+  matrix_std_dev = matrix_3x3.std()
+
+  ######## std_dev ###################
+  std_dev_list = [row_std_dev, column_std_dev, matrix_std_dev]
+  
+   
+  ######################################################
+  # C O N V E R T   T O   D I C T I O N A R Y
+  ######################################################
+  # Convert all values to dictionary
+"""
+  """
+  calculations = dict({'mean':mean_list,
+                     'variance':variances,
+                     'standard deviation':std_dev_list,
+                     'max':max_list,
+                     'min':min_list,
+                     'sum':sum_list})
+  """
+  calculations = {
+    'mean': [matrix_3x3.mean(0).tolist(), matrix_3x3.mean(1).tolist(), matrix_3x3.mean()],
+    'variance':[matrix_3x3.var(0).tolist(), matrix_3x3.var(1).tolist(), matrix_3x3.var()],
+    'standard deviation':[matrix_3x3.std(0).tolist(), matrix_3x3.std(1).tolist(), matrix_3x3.std()],
+    'max':[matrix_3x3.max(0).tolist(), matrix_3x3.max(1).tolist(), matrix_3x3.max()],
+    'min':[matrix_3x3.min(0).tolist(), matrix_3x3.min(1).tolist(), matrix_3x3.min()],
+    'sum':[matrix_3x3.sum(0).tolist(), matrix_3x3.sum(1).tolist(), matrix_3x3.sum()]
+    }
+#return calculations
+
+  return calculations

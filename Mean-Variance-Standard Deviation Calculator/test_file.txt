@@ -6,3 +6,15 @@
   row_sum_matrix = np.array([col1_row_sums_matrix],
                             [col2_row_sums_matrix ],
                             [col3_row_sums_matrix] )
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
